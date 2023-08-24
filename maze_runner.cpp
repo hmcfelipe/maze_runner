@@ -5,8 +5,8 @@
 char** maze; // Voce também pode representar o labirinto como um vetor de vetores de char (vector<vector<char>>)
 
 // Numero de linhas e colunas do labirinto
-int num_rows;
-int num_cols;
+int num_rows = -1;
+int num_cols = 0;
 
 // Representação de uma posição
 struct pos_t {
@@ -39,6 +39,26 @@ std::stack<pos_t> valid_positions;
 pos_t load_maze(const char* file_name) {
 	pos_t initial_pos;
 	// Abre o arquivo para leitura (fopen)
+
+	FILE *arq;
+	char ch;
+  	arq = fopen ("./data/maze.txt","r");
+
+	while ((ch = fgetc(arq)) != EOF){
+		
+		if(ch == '\n')
+			num_rows = num_rows+1;
+		if(num_rows == 1 && ch != '\n')
+			num_cols ++;
+	
+		printf("%c", ch);
+
+	}
+	printf("Numero de Linhas: ");
+	printf("%d", num_rows);
+	printf("\nNumero de Colunas: ");
+	printf("%d\n", num_cols);
+	fclose(arq);
 
 	// Le o numero de linhas e colunas (fscanf) 
 	// e salva em num_rows e num_cols
