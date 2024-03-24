@@ -5,6 +5,7 @@
 #include <thread>
 #include <unistd.h>
 
+// Exercício 1 _ ATR
 
 // Matriz de char representnado o labirinto
 char** maze; // Voce também pode representar o labirinto como um vetor de vetores de char (vector<vector<char>>)
