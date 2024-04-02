@@ -5,6 +5,8 @@
 #include <thread>
 #include <unistd.h>
 
+using namespace std;
+
 // Exercício 1 _ ATR
 
 // Matriz de char representnado o labirinto
@@ -186,14 +188,18 @@ bool walk(pos_t pos) {
 		// Caso contrario, retornar falso
 
 		if (!valid_positions.empty()) {
-			pos_t next_position = valid_positions.top();
+
+			pos_t proxima_position = valid_positions.top();
 			valid_positions.pop();
-			walk(next_position);
+			walk(proxima_position);
 			while (!valid_positions.empty()){
+				thread thrd(walk,valid_positions.top());
 				valid_positions.pop();
+				thrd.detach();
 			}
 			
 		}
+		
 	return false;
 }
 
