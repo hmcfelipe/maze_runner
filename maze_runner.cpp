@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// Exercício 1 _ ATR
+// Exercício 1 ATR Maze Runner 2024/2
 
 // Matriz de char representnado o labirinto
 char** maze; // Voce também pode representar o labirinto como um vetor de vetores de char (vector<vector<char>>)
@@ -206,7 +206,7 @@ bool walk(pos_t pos) {
 int main(int argc, char* argv[]) {
 	
 	// carregar o labirinto com o nome do arquivo recebido como argumento
-	pos_t initial_pos = load_maze("/workspaces/maze_runner/data/maze5.txt");
+	pos_t initial_pos = load_maze("/workspaces/maze_runner/data/maze7.txt");
 	// chamar a função de navegação
 	bool exit_found = walk(initial_pos);
 	
